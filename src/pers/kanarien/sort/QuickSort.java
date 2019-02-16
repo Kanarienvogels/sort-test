@@ -39,7 +39,7 @@ public class QuickSort implements Sortable{
     }
     
     private static int partition(int[] array, int lo, int hi) {
-        int i = lo, j = hi + 1; // i, j是左右扫描指针，array[lo]是切分元素
+        /*int i = lo, j = hi + 1; // i, j是左右扫描指针，array[lo]是切分元素
         while (true) {
             while (array[lo] > array[++i]) {
                 if (i == hi) {
@@ -53,10 +53,25 @@ public class QuickSort implements Sortable{
             exchange(array, i, j);
         }
         exchange(array, j, lo);
-        return j;
+        return j;*/
+        int i = lo, j = hi;
+        int key = array[lo];
+        
+        while (i < j) {
+            while (i < j && array[j] >= key) {
+                j--;
+            }
+            array[i] = array[j];
+            while (i < j && array[i] <= key) {
+                i++;
+            }
+            array[j] = array[i];
+        }
+        array[i] = key;
+        return i;
     }
     
     public static void main(String[] args) {
-        testCase(new QuickSort(), 10000);
+        testCase(new QuickSort(), 100);
     }
 }

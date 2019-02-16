@@ -6,6 +6,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import pers.kanarien.sort.BottomUpMergeSort;
+import pers.kanarien.sort.BubbleSort;
 import pers.kanarien.sort.HeapSort;
 import pers.kanarien.sort.InsertionSort;
 import pers.kanarien.sort.InsertionSortEX;
@@ -42,6 +43,7 @@ public class SortSpeedTest {
     }
     
     public static void main(String[] args) {
+        testSpeed(new BubbleSort(), 100, 10000);
         testSpeed(new SelectionSort(), 100, 10000);
         testSpeed(new InsertionSort(), 100, 10000);
         testSpeed(new InsertionSortEX(), 100, 10000);
